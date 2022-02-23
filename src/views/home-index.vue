@@ -3,7 +3,9 @@
         首页
 
         <ul>
-            <li @click="goJump('palindrome-number')">回文数</li>
+            <li @click="goJump('is-palindrome')">回文数</li>
+            <li @click="goJump('two-sum')">两数之和</li>
+            <li @click="goJump('my-sqrt')">x的平方根</li>
         </ul>
 
     </main>
@@ -18,7 +20,6 @@
     },
     methods:{
       goJump(routerName){
-        console.log('routerName',routerName);
         this.$router.push(routerName);
       },
     },
@@ -28,6 +29,6 @@
   });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

@@ -33,14 +33,26 @@
         解释：从右向左读, 为 01 。因此它不是一个回文数。
         <br>
 
-
-
     </main>
 </template>
 
 <script>
   export default {
-    name: "palindrome-number",
+    name: "is-palindrome",
+    methods:{
+      isPalindrome(x){
+        console.log('x',x);
+        let str = x.toString().split('').reverse().join('');
+        console.log('转字符串',str);
+        str = Number(str);
+        console.log('转数字',str);
+        console.log(x === str);
+        return x === str;
+      },
+    },
+    created(){
+      this.isPalindrome(0);
+    },
   }
 </script>
 
