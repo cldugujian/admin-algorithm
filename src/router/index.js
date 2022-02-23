@@ -7,6 +7,8 @@ import twoSum from '../views/two-sum'
 import mySqrt from '../views/my-sqrt'
 import removeDuplicates from '../views/remove-duplicates'
 import bubbleSort from '../views/bubble-sort'
+import insertSort from '../views/insert-sort'
+import selectSort from '../views/select-sort'
 
 const router = createRouter({
   history:routerHistory,
@@ -18,6 +20,8 @@ const router = createRouter({
     { path:'/my-sqrt',name:'my-sqrt',component:mySqrt },
     { path:'/remove-duplicates',name:'remove-duplicates',component:removeDuplicates },
     { path:'/bubble-sort',name:'bubble-sort',component:bubbleSort },
+    { path:'/insert-sort',name:'insert-sort',component:insertSort },
+    { path:'/select-sort',name:'select-sort',component:selectSort },
 
   ],
 });

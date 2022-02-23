@@ -7,6 +7,8 @@
       <li class="home-list" @click="goJump('my-sqrt')">x的平方根</li>
       <li class="home-list" @click="goJump('remove-duplicates')">删除有序数组中的重复项</li>
       <li class="home-list" @click="goJump('bubble-sort')">冒泡排序</li>
+      <li class="home-list" @click="goJump('insert-sort')">插入排序</li>
+      <li class="home-list" @click="goJump('select-sort')">选择排序</li>
     </ul>
 
   </main>
