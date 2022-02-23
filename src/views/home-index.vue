@@ -8,14 +8,11 @@
       <li class="home-list" @click="goJump('remove-duplicates')">删除有序数组中的重复项</li>
     </ul>
 
-    <router-view></router-view>
-
   </main>
 </template>
 
 <script>
   import {defineComponent} from 'vue'
-
   export default defineComponent({
     name: 'home-index',
     props: {},
@@ -47,7 +44,6 @@
     font-size: 36px;
     text-align: center;
   }
-
   .home-list {
     width: 23%;
     font-size: 14px;
