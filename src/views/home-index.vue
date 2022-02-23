@@ -6,6 +6,7 @@
       <li class="home-list" @click="goJump('two-sum')">两数之和</li>
       <li class="home-list" @click="goJump('my-sqrt')">x的平方根</li>
       <li class="home-list" @click="goJump('remove-duplicates')">删除有序数组中的重复项</li>
+      <li class="home-list" @click="goJump('bubble-sort')">冒泡排序</li>
     </ul>
 
   </main>
@@ -15,14 +16,10 @@
   import {defineComponent} from 'vue'
   export default defineComponent({
     name: 'home-index',
-    props: {},
     methods: {
       goJump(routerName) {
         this.$router.push(routerName);
       },
-    },
-    created() {
-
     },
   });
 </script>

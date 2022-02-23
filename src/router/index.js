@@ -6,6 +6,7 @@ import isPalindrome from '../views/is-palindrome'
 import twoSum from '../views/two-sum'
 import mySqrt from '../views/my-sqrt'
 import removeDuplicates from '../views/remove-duplicates'
+import bubbleSort from '../views/bubble-sort'
 
 const router = createRouter({
   history:routerHistory,
@@ -16,6 +17,7 @@ const router = createRouter({
     { path:'/two-sum',name:'two-sum',component:twoSum },
     { path:'/my-sqrt',name:'my-sqrt',component:mySqrt },
     { path:'/remove-duplicates',name:'remove-duplicates',component:removeDuplicates },
+    { path:'/bubble-sort',name:'bubble-sort',component:bubbleSort },
 
   ],
 });
