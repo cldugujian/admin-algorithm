@@ -9,6 +9,7 @@
       <li class="home-list" @click="goJump('bubble-sort')">冒泡排序</li>
       <li class="home-list" @click="goJump('insert-sort')">插入排序</li>
       <li class="home-list" @click="goJump('select-sort')">选择排序</li>
+      <li class="home-list" @click="goJump('longest-common-prefix')">最长公共前缀</li>
     </ul>
 
   </main>
