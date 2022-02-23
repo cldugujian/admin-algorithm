@@ -11,7 +11,7 @@ const router = createRouter({
   history:routerHistory,
   routes:[
 
-    { path:'/',name:'home-index',component:homeIndex },
+    { path:'/',name:'home-index',component:homeIndex, },
     { path:'/is-palindrome',name:'is-palindrome',component:isPalindrome },
     { path:'/two-sum',name:'two-sum',component:twoSum },
     { path:'/my-sqrt',name:'my-sqrt',component:mySqrt },
