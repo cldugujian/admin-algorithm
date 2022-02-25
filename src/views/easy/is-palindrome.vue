@@ -86,10 +86,6 @@
         if( x<10 && x > 0 ){
           return true;
         }
-        let cache = x;
-        while( cache > 10 ){
-
-        }
       },
     },
     created(){
