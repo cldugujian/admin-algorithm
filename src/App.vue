@@ -55,7 +55,6 @@ export default {
   body,html{
     background: #09213a;
   }
-
   /* flex布局 */
   .flex_keep_self{
     flex-grow: 0;
