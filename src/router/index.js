@@ -11,6 +11,7 @@ import insertSort from '../views/easy/insert-sort'
 import selectSort from '../views/easy/select-sort'
 import longestCommonPrefix from '../views/easy/longest-common-prefix'
 import removeElement from '../views/easy/remove-element'
+import climbStairs from '../views/easy/climb-stairs'
 
 const router = createRouter({
   history:routerHistory,
@@ -26,6 +27,7 @@ const router = createRouter({
     { path:'/easy/remove-duplicates',name:'remove-duplicates',component:removeDuplicates },
     { path:'/easy/longest-common-prefix',name:'longest-common-prefix',component:longestCommonPrefix },
     { path:'/easy/remove-element',name:'remove-element',component:removeElement },
+    { path:'/easy/climb-stairs',name:'climb-stairs',component:climbStairs },
 
   ],
 });

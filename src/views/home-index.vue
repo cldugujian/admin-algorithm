@@ -2,15 +2,16 @@
   <main class="home">
     <h1 class="home-title">算法</h1>
     <ul class="home-main flex">
-      <li class="home-list" @click="goJump('is-palindrome')">回文数</li>
-      <li class="home-list" @click="goJump('two-sum')">两数之和</li>
-      <li class="home-list" @click="goJump('my-sqrt')">x的平方根</li>
-      <li class="home-list" @click="goJump('remove-duplicates')">删除有序数组中的重复项</li>
       <li class="home-list" @click="goJump('bubble-sort')">冒泡排序</li>
       <li class="home-list" @click="goJump('insert-sort')">插入排序</li>
       <li class="home-list" @click="goJump('select-sort')">选择排序</li>
-      <li class="home-list" @click="goJump('longest-common-prefix')">最长公共前缀</li>
-      <li class="home-list" @click="goJump('remove-element')">移除元素</li>
+      <li class="home-list" @click="goJump('two-sum')">1. 两数之和</li>
+      <li class="home-list" @click="goJump('is-palindrome')">9. 回文数</li>
+      <li class="home-list" @click="goJump('longest-common-prefix')">14. 最长公共前缀</li>
+      <li class="home-list" @click="goJump('remove-duplicates')">26. 删除有序数组中的重复项</li>
+      <li class="home-list" @click="goJump('remove-element')">27. 移除元素</li>
+      <li class="home-list" @click="goJump('my-sqrt')">69. x的平方根</li>
+      <li class="home-list" @click="goJump('climb-stairs')">70. 爬楼梯</li>
     </ul>
 
   </main>

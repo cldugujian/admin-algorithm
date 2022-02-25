@@ -27,7 +27,7 @@
           return result;
         }
 
-        // 先找到字符串长度最小的哪一项元素
+        // 先找到字符串长度最小的那一项元素
         let minSup = 0;
         for( let i=0; i<strs.length-1; i++ ){
           if( strs[i].length < strs[i+1].length ){
@@ -35,33 +35,6 @@
           }
         }
         console.log('minSup',minSup,'strs[minSup]',strs[minSup]);
-
-        // 复制数组
-        let arr = JSON.parse( JSON.stringify( strs ) );
-        // 去除最小的那个下标元素
-        arr.splice(minSup,1);
-        console.log('arr',arr);
-        // 将去除后的数组连起来
-        let newStr = arr.join('-');
-        console.log('newStr',newStr);
-
-        // 先排除没有公共前缀的情况
-        let flag = false;
-        for( let i of strs[minSup] ){
-          if( newStr.indexOf(i) !== -1 ){
-            flag = true;
-          }
-        }
-        if( !flag ){
-          result = '';
-          console.log('没有公共前缀');
-        }
-
-
-
-
-
-
 
         return result;
       },
