@@ -1,6 +1,8 @@
 <template>
     <main>
+
         <router-view></router-view>
+
     </main>
 </template>
 
@@ -38,7 +40,6 @@ export default {
     vertical-align: baseline;
     box-sizing: border-box;
     -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     box-shadow: none;
   }
