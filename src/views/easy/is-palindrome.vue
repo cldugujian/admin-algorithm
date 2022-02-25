@@ -44,18 +44,64 @@
   export default {
     name: "is-palindrome",
     methods:{
-      isPalindrome(x){
-        console.log('x',x);
+      // 转字符串直接翻转
+      isPalindrome_1(x){
+        if( x < 0 ||  x%10 === 0  ){
+          return false;
+        }
+        if( x<10 && x > 0 ){
+          return true;
+        }
+        // console.log('x',x);
         let str = x.toString().split('').reverse().join('');
-        console.log('转字符串',str);
+        // console.log('转字符串',str);
         str = Number(str);
-        console.log('转数字',str);
+        // console.log('转数字',str);
         console.log(x === str);
         return x === str;
       },
+      // 转字符串循环判断
+      isPalindrome_2(x){
+        let flag = true;
+        if( x < 0 ||  x%10 === 0  ){
+          return false;
+        }
+        if( x<10 && x > 0 ){
+          return true;
+        }
+        let str = x.toString();
+        let length = str.length;
+        for( let i=0; i<length/2; i++ ){
+          if( str[i] !== str[length-1-i] ){
+            flag = false;
+          }
+        }
+        return flag;
+      },
+      // 不转字符串
+      isPalindrome_3(x){
+        if( x < 0 ||  x%10 === 0  ){
+          return false;
+        }
+        if( x<10 && x > 0 ){
+          return true;
+        }
+        let cache = x;
+        while( cache > 10 ){
+
+        }
+      },
     },
     created(){
-      this.isPalindrome(0);
+      let test = [
+        121,
+        -121,
+        0,
+        10
+      ];
+      test.forEach(item => {
+        this.isPalindrome_2(item);
+      });
     },
   }
 </script>
