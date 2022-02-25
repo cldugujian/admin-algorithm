@@ -10,6 +10,7 @@
       <li class="home-list" @click="goJump('insert-sort')">插入排序</li>
       <li class="home-list" @click="goJump('select-sort')">选择排序</li>
       <li class="home-list" @click="goJump('longest-common-prefix')">最长公共前缀</li>
+      <li class="home-list" @click="goJump('remove-element')">移除元素</li>
     </ul>
 
   </main>
@@ -21,7 +22,7 @@
     name: 'home-index',
     methods: {
       goJump(routerName) {
-        this.$router.push(routerName);
+        this.$router.push({ name:routerName });
       },
     },
   });
