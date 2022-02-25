@@ -1,6 +1,10 @@
 <template>
   <main>
 
+    删除有序数组中的重复项
+    <br>
+    <br>
+
     给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。<br>
     <br>
     由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有k个元素，那么nums的前k个元素应该保存最终结果。<br>
@@ -29,7 +33,7 @@
   export default {
     name: "remove-duplicates",
     methods:{
-      // 每次重复都调用一次splice
+      // 每次发现重复元素，都调用一次splice
       removeDuplicates_1(nums){
         // 极端情况
         if( nums.length === 1 ){
@@ -58,26 +62,27 @@
         }
         // 先获取数组初始长度
         let initLength = nums.length;
-        console.log('initLength',initLength);
+        // console.log('initLength',initLength);
         // 逐个遍历查找重复元素
         for( let i=0; i<initLength; i++ ){
-          let itemOuter = nums[i];
-          console.log('itemOuter',itemOuter);
+          let item = nums[i];
+          // console.log('item',item);
           // 默认数组尾部无重复
           let flag = true;
           // 如果数组尾部新增的元素中有重复的，则不添加
           for( let j=initLength; j<=nums.length; j++ ){
-            let itemInner = nums[j];
-            console.log('itemInner',itemInner);
-            if( itemOuter === itemInner ){
+            // console.log('itemInner',nums[j]);
+            if( item === nums[j] ){
               flag = false;
               break;
             }
           }
-          flag && nums.push(itemOuter);
+          flag && nums.push(item);
         }
         console.log('前',nums);
-        nums = nums.splice(initLength,nums.length);
+        // nums = nums.splice(initLength,nums.length);
+        let cache = nums.splice(initLength,nums.length);
+        nums.splice( 0,cache.length,...cache );
         console.log('后',nums);
         return nums;
       },
@@ -106,15 +111,36 @@
             nums[currentSup] = nums[i+1];
           }
         }
+        console.log('nums',nums,'currentSup',currentSup);
+        return currentSup+1;
+      },
+      // 每次发现重复元素，都调用一次splice
+      removeDuplicates_5(nums){
+        // 极端情况
+        if( nums.length === 1 ){
+          return nums;
+        }
+        let length = nums.length;
+        for( let i=nums.length-1; i>=0; i-- ){
+          if( nums[i] === nums[i-1] ){
+            nums.splice(i,1);
+            length++;
+            i++;
+          }
+        }
         console.log('nums',nums);
-        return nums;
+        return nums.length;
       },
     },
     created(){
-      let nums = [0,0,1,1,1,2,2,3,3,4];
-      // let nums = [1,1,2];
-      // let nums = [0,1,2,3,4,5];
-      this.removeDuplicates_4(nums);
+      let test = [
+        [1,1,2],
+        [0,0,1,1,1,2,2,3,3,4],
+        [0,1,2,3,4,5]
+      ];
+      test.forEach(item=>{
+        this.removeDuplicates_5(item);
+      });
     },
   }
 </script>
