@@ -10,6 +10,7 @@
       <li class="home-list" @click="goJump('longest-common-prefix')">14. 最长公共前缀</li>
       <li class="home-list" @click="goJump('remove-duplicates')">26. 删除有序数组中的重复项</li>
       <li class="home-list" @click="goJump('remove-element')">27. 移除元素</li>
+      <li class="home-list" @click="goJump('search-insert')">35. 搜索插入位置</li>
       <li class="home-list" @click="goJump('my-sqrt')">69. x的平方根</li>
       <li class="home-list" @click="goJump('climb-stairs')">70. 爬楼梯</li>
     </ul>
