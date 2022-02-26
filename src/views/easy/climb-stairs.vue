@@ -82,16 +82,44 @@
         console.log('count',count);
         return count;
       },
+      // 递归
       climbStairs_2(n){
         function getNumber(number) {
-
+          if( number === 1 ){
+            return 1;
+          }
+          if( number === 2 ){
+            return 2;
+          }
+          return getNumber(number-1) + getNumber(number-2);
         }
+        return getNumber(n);
       },
+      // 递归转循环
+      climbStairs_3(n){
+        if( n === 1 || n === 2 ){
+          console.log('result',n);
+          console.log('');
+          return n;
+        }
+        let before = 1;
+        let after = 2;
+        let result;
+        while( n > 2 ){
+          result = before + after;
+          before = after;
+          after = result;
+          n --;
+        }
+        console.log('result',result);
+        console.log('');
+        return result;
+      }
     },
     created() {
-      let test = [0,1,2,3,4,5,6,7,8,9,10];
+      let test = [0,1,2,3,4,5,6,7,8,9,10,45];
       test.forEach( item =>{
-        this.climbStairs_1( item );
+        this.climbStairs_3( item );
       });
     },
   }

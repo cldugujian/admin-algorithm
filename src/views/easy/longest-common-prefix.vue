@@ -40,6 +40,8 @@
         }
         console.log('minSup',minSup,'strs[minSup]',strs[minSup]);
 
+        // 有一定难度，暂时封存
+
         return result;
       },
     },

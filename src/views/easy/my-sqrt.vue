@@ -30,6 +30,80 @@
   export default {
     name: "my-sqrt",
     methods:{
+      // 二分法递归
+      mySqrt_1(x){
+        // 将数字转为字符串后，再一分为二
+        let string = x.toString();
+        let divide = Math.ceil(string.length/2);
+        // 判断极端情况
+        if( x === 0 ){ return 0 }
+        let min = this.getMin(divide);
+        let max = this.getMax(divide);
+        let result = this.middleSearch(min,max,x);
+        console.log('result',result);
+        console.log('');
+        return result;
+      },
+      // 递归改循环
+      mySqrt_2(x){
+        if( x === 0 ){
+          return 0
+        }
+        let string = x.toString();
+        // 数字位数的的一半
+        let divide = Math.ceil(string.length/2);
+        // 设定目标区间段的最小值
+        let min = this.getMin(divide);
+        // 设定目标区间段的最大值
+        let max = this.getMax(divide);
+        let result = 1;
+        let flag = true;
+        while( flag ){
+          if( min*min === x ){
+            result = min;
+            flag = false;
+          }
+          if( max*max === x ){
+            result = max;
+            flag = false;
+          }
+          if( max-min === 1 ){
+            result = min;
+            flag = false;
+          }
+          // 找到分割点
+          let middle = min + parseInt( ( max-min )/2 );
+          if( middle*middle < x ){
+            min = middle;
+          }else if( middle*middle > x ){
+            max = middle;
+          }else{
+            result = middle;
+            flag = false;
+          }
+        }
+        console.log('result',result);
+        return result;
+      },
+      // 寻找中位
+      middleSearch(min,max,target){
+        // 判断边缘情况 - 最小值
+        if( min*min === target ){return min;}
+        // 判断边缘情况 - 最大值
+        if( max*max === target ){return max;}
+        // 判断边缘情况 - 二选一
+        if( max-min === 1 ){return min;}
+        // 找到区间的中间数
+        let middle = min + parseInt( ( max-min )/2 );
+        // 根据中间数的平方，来舍弃另一半
+        if( middle*middle < target ){
+          return this.middleSearch(middle,max,target);
+        }else if( middle*middle > target ){
+          return this.middleSearch(min,middle,target);
+        }else{
+          return middle;
+        }
+      },
       // 设定答案区间中最小值
       getMin(length){
         if( length === 1 ){
@@ -52,123 +126,12 @@
         }
         return result;
       },
-      // 寻找中位
-      middleSearch(min,max,target){
-        // 判断边缘情况 - 最小值
-        if( min*min === target ){return min;}
-        // 判断边缘情况 - 最大值
-        if( max*max === target ){return max;}
-        // 判断边缘情况 - 二选一
-        if( max-min === 1 ){return min;}
-        // 找到区间的中间数
-        let middle = min + parseInt( ( max-min )/2 );
-        // 根据中间数的平方，来舍弃另一半
-        if( middle*middle < target ){
-          return this.middleSearch(middle,max,target);
-        }else if( middle*middle > target ){
-          return this.middleSearch(min,middle,target);
-        }else{
-          return middle;
-        }
-      },
-      // 二分法
-      mySqrt_1(x){
-        // 将数字转为字符串后，再一分为二
-        let string = x.toString();
-        let divide = Math.ceil(string.length/2);
-        // 判断极端情况
-        if( x === 0 ){ return 0 }
-        let min = this.getMin(divide);
-        let max = this.getMax(divide);
-        let result = this.middleSearch(min,max,x);
-        console.log('result',result);
-        console.log('');
-        return result;
-      },
-      // 递归改循环
-      mySqrt_2(x){
-        if( x === 0 ){
-          return 0
-        }
-        let string = x.toString();
-        let divide = Math.ceil(string.length/2);
-
-        function getMin(length) {
-          if( length === 1 ){
-            return 1;
-          }
-          let result = 10;
-          for( let i=0; i<length-2; i++ ){
-            result *= 10;
-          }
-          return result;
-        }
-        function getMax(length) {
-          if( length === 1 ){
-            return 10;
-          }
-          let result = 10;
-          for( let i=0; i<length-1; i++ ){
-            result *= 10;
-          }
-          return result;
-        }
-        let flag = true;
-        let min = getMin(divide);
-        let max = getMax(divide);
-        let result = 1;
-        while( flag ){
-          if( min*min === x ){
-            result = min;
-            flag = false;
-          }
-          if( max*max === x ){
-            result = max;
-            flag = false;
-          }
-          if( max-min === 1 ){
-            result = min;
-            flag = false;
-          }
-          let middle = min + parseInt( ( max-min )/2 );
-          if( middle*middle < x ){
-            min = middle;
-          }else if( middle*middle > x ){
-            max = middle;
-          }else{
-            result = middle;
-            flag = false;
-          }
-        }
-        console.log('result',result);
-        return result;
-      },
       // 三分法
       mySqrt_3(x){
         let string = x.toString();
         let divide = Math.ceil(string.length/2);
-        function getMin(length) {
-          if( length === 1 ){
-            return 1;
-          }
-          let result = 10;
-          for( let i=0; i<length-2; i++ ){
-            result *= 10;
-          }
-          return result;
-        }
-        function getMax(length) {
-          if( length === 1 ){
-            return 10;
-          }
-          let result = 10;
-          for( let i=0; i<length-1; i++ ){
-            result *= 10;
-          }
-          return result;
-        }
-        let min = getMin(divide);
-        let max = getMax(divide);
+        let min = this.getMin(divide);
+        let max = this.getMax(divide);
         function middleSearch(min,max,x) {
           if( x === 0 ){
             return 0;
