@@ -1,18 +1,22 @@
 <template>
   <main class="home">
-    <h1 class="home-title">算法</h1>
+    <h1 class="home-title">Common</h1>
     <ul class="home-main flex">
-      <li class="home-list" @click="goJump('bubble-sort')">冒泡排序</li>
-      <li class="home-list" @click="goJump('insert-sort')">插入排序</li>
-      <li class="home-list" @click="goJump('select-sort')">选择排序</li>
-      <li class="home-list" @click="goJump('two-sum')">1. 两数之和</li>
-      <li class="home-list" @click="goJump('is-palindrome')">9. 回文数</li>
-      <li class="home-list" @click="goJump('longest-common-prefix')">14. 最长公共前缀</li>
-      <li class="home-list" @click="goJump('remove-duplicates')">26. 删除有序数组中的重复项</li>
-      <li class="home-list" @click="goJump('remove-element')">27. 移除元素</li>
-      <li class="home-list" @click="goJump('search-insert')">35. 搜索插入位置</li>
-      <li class="home-list" @click="goJump('my-sqrt')">69. x的平方根</li>
-      <li class="home-list" @click="goJump('climb-stairs')">70. 爬楼梯</li>
+      <li v-for="item in common"
+          @click="goJump(item.routeName)"
+          class="home-list"
+          :key="item">
+        {{ item.title }}
+      </li>
+    </ul>
+    <h1 class="home-title">Easy</h1>
+    <ul class="home-main flex">
+      <li v-for="item in easy"
+          @click="goJump(item.routeName)"
+          class="home-list"
+          :key="item">
+        {{ item.title }}
+      </li>
     </ul>
 
   </main>
@@ -22,6 +26,25 @@
   import {defineComponent} from 'vue'
   export default defineComponent({
     name: 'home-index',
+    data(){
+      return{
+        common:[
+          { routeName:'bubble-sort',title:'冒泡排序'},
+          { routeName:'insert-sort',title:'插入排序'},
+          { routeName:'select-sort',title:'选择排序'},
+        ],
+        easy:[
+          { routeName:'two-sum',title:'1. 两数之和'},
+          { routeName:'is-palindrome',title:'9. 回文数'},
+          { routeName:'longest-common-prefix',title:'14. 最长公共前缀'},
+          { routeName:'remove-duplicates',title:'26. 删除有序数组中的重复项'},
+          { routeName:'remove-element',title:'27. 移除元素'},
+          { routeName:'search-insert',title:'35. 搜索插入位置'},
+          { routeName:'my-sqrt',title:'69. x的平方根'},
+          { routeName:'climb-stairs',title:'70. 爬楼梯'},
+        ],
+      }
+    },
     methods: {
       goJump(routerName) {
         this.$router.push({ name:routerName });
@@ -33,28 +56,23 @@
 <style scoped lang="scss">
   .home {
     width: 100%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .home-main{
     flex-wrap: wrap;
-    margin-top:40px;
   }
   .home-title {
     display: block;
     width: 100%;
-    font-size: 36px;
+    font-size: 24px;
     text-align: center;
+    margin-top:40px;
   }
   .home-list {
-    width: 23%;
+    width: 100%;
     font-size: 14px;
     margin-top: 20px;
-    margin-left:1%;
-    margin-right:1%;
+    padding-left:40px;
     line-height: 38px;
-    text-align: center;
     background: rgba(0, 162, 255, 0.1);
     border-radius: 10px;
     transition: all 0.5s;
