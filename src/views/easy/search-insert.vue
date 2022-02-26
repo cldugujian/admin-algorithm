@@ -27,6 +27,14 @@
     输入: nums = [1], target = 0<br>
     输出: 0<br>
     <br>
+    <br>
+    提示:<br>
+    <br>
+    1 -- nums.length -- 104<br>
+    -104 -- nums[i] -- 104<br>
+    nums 为无重复元素的升序排列数组<br>
+    -104 -- target -- 104<br>
+
 
   </main>
 </template>

@@ -14,6 +14,12 @@
     <br>
     示例 2： 输入：strs = ["dog","racecar","car"] <br>
     输出："" 解释：输入不存在公共前缀。 <br>
+    <br>
+    提示：<br>
+    <br>
+    1 -- strs.length -- 200<br>
+    0 -- strs[i].length -- 200<br>
+    strs[i] 仅由小写英文字母组成<br>
 
   </main>
 </template>

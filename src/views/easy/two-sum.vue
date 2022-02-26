@@ -23,7 +23,15 @@
     示例 3：<br>
     <br>
     输入：nums = [3,3], target = 6<br>
-    输出：[0,1]<br>
+    输出：[0,1]
+    <br>
+    <br>
+    提示：
+    <br>
+    2 -- nums.length -- 104<br>
+    -109 -- nums[i] -- 109<br>
+    -109 -- target -- 109<br>
+    只会存在一个有效答案<br>
 
   </main>
 </template>
