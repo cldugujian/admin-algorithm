@@ -42,6 +42,20 @@
         console.log('后',s);
         console.log('');
       },
+      reverseString_3(s){
+        console.log('前',s);
+        let length = s.length;
+        let cache = [];
+        for( let i=length-1; i>=0; i-- ){
+          cache.push(s[i]);
+        }
+        for( let i=length-1; i>=0; i-- ){
+          s[i] = cache[i];
+        }
+        cache = null;
+        console.log('后',s);
+        console.log('');
+      }
     },
     created(){
       let test = [
@@ -52,7 +66,7 @@
         ["1","2","3","2","1"],
       ];
       test.forEach(item=>{
-        this.reverseString_2(item);
+        this.reverseString_3(item);
       });
     },
   }
