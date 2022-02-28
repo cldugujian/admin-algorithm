@@ -39,7 +39,8 @@
       "vue/no-unused-components": "off",
       "no-irregular-whitespace":"off",
       "no-unused-vars": "off",
-      "no-unreachable":"off"
+      "no-unreachable":"off",
+      "no-empty":"off"
     }
   },
   "browserslist": [

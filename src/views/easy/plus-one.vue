@@ -36,10 +36,64 @@
   export default {
     name: "plus-one",
     methods:{
-
+      // 从后往前遍历+1
+      plusOne_1(digits){
+        console.log('前',digits);
+        // 数组长度
+        let length = digits.length;
+        // 最后一个元素
+        let lastEl = digits[length-1];
+        // 如果末尾数 < 9 ,则直接 +1
+        if( lastEl < 9 ){
+          digits[length-1] ++;
+        }else{
+          // 从后往前遍历
+          for( let i=length-1; i>=0; i-- ){
+            if( ++digits[i] !== 10 ){
+              break;
+            }
+            digits[i] = 0;
+            // 如果第一位是 9 ，则在最前面添加 1
+            if( i === 0 ){
+              digits.unshift(1);
+            }
+          }
+        }
+        console.log('后',digits);
+        console.log('');
+        return digits;
+      },
+      // 转字符串 + 1 ，再转回数组
+      plusOne_2(digits){
+        console.log('前',digits);
+        let str = digits.join('');
+        // 如果目标数小于 js 能处理额最大数 (2^53 +1)
+        if( window.BigInt(str) < window.BigInt('9007199254740993') ){
+          str = Number( str );
+          str = ++str + '';
+        }else{
+          str = window.BigInt(str) + window.BigInt('1') + '';
+        }
+        console.log('str',str);
+        let result = str.split('').map(item=>{ return item*1; });
+        console.log('后',result);
+        console.log('');
+        return result;
+      },
     },
     created(){
-
+      let test = [
+        [0],
+        [1,2,3],
+        [9,8,9],
+        [9,9,9],
+        [4,3,2,1],
+        [8,9,9,9],
+        [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3],
+      ];
+      test.forEach(item=>{
+        this.plusOne_1(item);
+      });
     },
   }
 </script>
