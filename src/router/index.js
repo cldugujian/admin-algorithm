@@ -13,6 +13,7 @@ import longestCommonPrefix from '../views/easy/longest-common-prefix'
 import removeElement from '../views/easy/remove-element'
 import climbStairs from '../views/easy/climb-stairs'
 import searchInsert from '../views/easy/search-insert'
+import plusOne from '../views/easy/plus-one'
 
 const router = createRouter({
   history:routerHistory,
@@ -30,6 +31,7 @@ const router = createRouter({
     { path:'/easy/remove-element',name:'remove-element',component:removeElement },
     { path:'/easy/climb-stairs',name:'climb-stairs',component:climbStairs },
     { path:'/easy/search-insert',name:'search-insert',component:searchInsert },
+    { path:'/easy/plus-one',name:'plus-one',component:plusOne },
 
   ],
 });
