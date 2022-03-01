@@ -35,13 +35,13 @@
         if( strs.length === 1 ){
           return strs[0];
         }
-        let result = '';
+        let result = [];
         // 将数组按长度，从大到小排列
         let sorted = strs.sort( (a,b) => { return b.length-a.length } );
-        console.log('sorted',sorted);
+        console.log('从大到小排序后',sorted);
         // 先找到字符串长度最小的那一项元素
         let minStr = sorted[sorted.length-1];
-        console.log('minStr',minStr);
+        console.log('字符最短的元素',minStr);
         // 创建一个二位数组，存放所有元素的公共前缀
         let cache = [];
         // 当前正在遍历的下标
@@ -65,11 +65,12 @@
                 }
                 // 当前公共前缀的长度 +1
                 length ++;
+                // 将当前公共前缀记下来
+                let segment = minStr.slice(currentSup,currentSup+length);
+                cache[i].indexOf(segment) === -1 && cache[i].push(segment);
                 // 如果已经最后一位
                 if( k === sorted[i].length-1 ){
-                  let segment = minStr.slice(currentSup,currentSup+length);
-                  cache[i].indexOf(segment) === -1 && cache[i].push(segment);
-                  // 让中层循环重新回到该有的位置
+                  // 让中层循环重新回到该有的位置并重置相关变量
                   j = minStr.indexOf(minStr[currentSup]);
                   currentSup = null;
                   length = 0;
@@ -77,8 +78,10 @@
               }else{
                 // 如果当前已经匹配道公共前缀
                 if( currentSup !== null ){
+                  // 将当前公共前缀记下来
                   let segment = minStr.slice(currentSup,currentSup+length);
                   cache[i].indexOf(segment) === -1 && cache[i].push(segment);
+                  // 让中层循环重新回到该有的位置并重置相关变量
                   j -= length;
                   currentSup = null;
                   length = 0;
@@ -89,24 +92,46 @@
         }
         // 公共前缀长度从小到大排列
         cache.sort( (a,b) => { return a.length - b.length  });
-        console.log('cache',...cache);
+        console.log('各元素与最短元素的公共字符',cache);
         // 如果没有公共前缀
         if( cache[0].length === 0 ){
           console.log('没有公共前缀');
           return '';
         }
+        // 从公共前缀数量最少的元素开始遍历
+        let target = cache[0];
+        console.log('target',target);
+        for ( let i=0; i<target.length; i++ ){
+          // 如果每个元素都有该字符，则记录下来
+          let includeStr = cache.every( item => { return item.indexOf(target[i]) !== -1 } );
+          if( includeStr ){
+            result.push(target[i]);
+          }
+        }
+        // 如果没有公共前缀
+        if(!result.length){
+          console.log('没有公共前缀');
+          return '';
+        }
+        // 从大到小排序
+        result.sort( (a,b) => { return b.length-a.length } );
+        // 输出最大的公共前缀，可能不止一个
+        let maxLength = result[0].length;
+        result = result.filter( item => { return item.length === maxLength } );
+        console.log('result',result);
         return result;
       },
     },
     created(){
       let test = [
+        ['abcd','bcd','ef'],
         ["racecar","car"],
         ["dog","racecar","car"],
         ['abc','ac','bc','ab'],
         ["flower","flow","flight",'flu'],
         ["dogca","racecar","car"],
         ['xacybcd','bcd','cybc'],
-        ['car','car','car'],
+        ['caxy','camnxy','xyca'],
       ];
       test.forEach(item=>{
         this.longestCommonPrefix(item);

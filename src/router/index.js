@@ -15,7 +15,6 @@ import climbStairs from '../views/easy/climb-stairs'
 import searchInsert from '../views/easy/search-insert'
 import plusOne from '../views/easy/plus-one'
 import reverseString from '../views/easy/reverse-string'
-import maxRepeating from '../views/easy/max-repeating'
 
 const router = createRouter({
   history:routerHistory,
@@ -35,7 +34,6 @@ const router = createRouter({
     { path:'/easy/search-insert',name:'search-insert',component:searchInsert },
     { path:'/easy/plus-one',name:'plus-one',component:plusOne },
     { path:'/easy/reverse-string',name:'reverse-string',component:reverseString },
-    { path:'/easy/max-repeating',name:'max-repeating',component:maxRepeating },
 
   ],
 });
