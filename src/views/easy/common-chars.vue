@@ -27,10 +27,58 @@
   export default {
     name: "common-chars",
     methods:{
-
+      commonChars(words){
+        console.log('');
+        console.log('words',words);
+        // 只有一个元素
+        if( words.length === 1 ){
+          console.log('只有一个元素',words[0].split(''));
+          return words[0].split('');
+        }
+        let result = [];
+        // 以第一个元素为参照，遍历其他所有元素
+        let target = words[0];
+        let length = target.length;
+        for( let i=0; i<length; i++ ){
+          let flag = true;
+          // 如果有任何一个元素没有匹配上，则false并中止
+          for( let j=1;j<words.length; j++ ){
+            if( words[j].indexOf(target[i]) === -1 ){
+              flag = false;
+            }
+          }
+          // 如果当前字符铜鼓了，则添加进结果中
+          if( flag ){
+            result.push(target[i]);
+            // 所有元素去除当前添加的字符
+            words = words.map( item => {
+              let index = item.indexOf(target[i]);
+              return item.slice(0,index)+item.slice(index+1,item.length);
+            });
+            console.log('words',words);
+          }
+        }
+        console.log('result',result);
+        return result;
+      },
     },
     created(){
-
+      let test = [
+        ['a'],
+        ['ab','a'],
+        ['abcd','abc','abcdef'],
+        ["racecar","car"],
+        ["dog","racecar","car"],
+        ['abc','ac','bc','ab'],
+        ["flower","flow","flight",'flu'],
+        ["dogca","racecar","car"],
+        ['xacybcd','bcd','cybc'],
+        ['caxy','camnxy','cxyca'],
+        ["cool","lock","cook"],
+      ];
+      test.forEach(item=>{
+        this.commonChars(item);
+      });
     },
   }
 </script>
