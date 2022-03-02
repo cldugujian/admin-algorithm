@@ -1,8 +1,8 @@
 <template>
   <main class="home">
-    <h1 class="home-title">Common</h1>
+    <h1 class="home-title">Other</h1>
     <ul class="home-main flex">
-      <li v-for="item in common"
+      <li v-for="item in other"
           @click="goJump(item.routeName)"
           class="home-list"
           :key="item">
@@ -28,10 +28,11 @@
     name: 'home-index',
     data(){
       return{
-        common:[
+        other:[
           { routeName:'bubble-sort',title:'冒泡排序'},
           { routeName:'insert-sort',title:'插入排序'},
           { routeName:'select-sort',title:'选择排序'},
+          { routeName:'common-string',title:'最大公共字符'},
         ],
         easy:[
           { routeName:'two-sum',title:'1. 两数之和'},
