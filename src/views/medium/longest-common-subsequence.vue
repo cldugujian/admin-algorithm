@@ -43,7 +43,19 @@
       },
     },
     created(){
-
+      let test = [
+        ['abcd','bcd'],
+        // ["racecar","car"],
+        // ["dog","racecar"],
+        // ['abc','ac'],
+        // ["flower","flow"],
+        // ["dogca","racecar"],
+        // ['xacybcd','bcd'],
+        // ['caxy','camnxy'],
+      ];
+      test.forEach(item=>{
+        this.longestCommonSubsequence(item[0],item[1]);
+      });
     },
   }
 </script>
