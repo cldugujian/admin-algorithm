@@ -1,23 +1,16 @@
 <template>
-  <main class="home">
-    <h1 class="home-title">Other</h1>
-    <ul class="home-main flex">
-      <li v-for="item in other"
-          @click="goJump(item.routeName)"
-          class="home-list"
-          :key="item">
-        {{ item.title }}
-      </li>
-    </ul>
-    <h1 class="home-title">Easy</h1>
-    <ul class="home-main flex">
-      <li v-for="item in easy"
-          @click="goJump(item.routeName)"
-          class="home-list"
-          :key="item">
-        {{ item.title }}
-      </li>
-    </ul>
+  <main>
+    <section class="home" v-for="itemOuter in category" :key="itemOuter">
+      <h1 class="home-title">{{ itemOuter.classify }}</h1>
+      <ul class="home-main flex">
+        <li v-for="itemInner in itemOuter.list"
+            @click="goJump(itemInner.routeName)"
+            class="home-list"
+            :key="itemInner">
+          {{ itemInner.title }}
+        </li>
+      </ul>
+    </section>
 
   </main>
 </template>
@@ -28,23 +21,37 @@
     name: 'home-index',
     data(){
       return{
-        other:[
-          { routeName:'bubble-sort',title:'冒泡排序'},
-          { routeName:'insert-sort',title:'插入排序'},
-          { routeName:'select-sort',title:'选择排序'},
-          { routeName:'common-string',title:'最大公共字符'},
-        ],
-        easy:[
-          { routeName:'two-sum',title:'1. 两数之和'},
-          { routeName:'is-palindrome',title:'9. 回文数'},
-          { routeName:'longest-common-prefix',title:'14. 最长公共前缀'},
-          { routeName:'remove-duplicates',title:'26. 删除有序数组中的重复项'},
-          { routeName:'remove-element',title:'27. 移除元素'},
-          { routeName:'search-insert',title:'35. 搜索插入位置'},
-          { routeName:'plus-one',title:'66. 加一'},
-          { routeName:'my-sqrt',title:'69. x的平方根'},
-          { routeName:'climb-stairs',title:'70. 爬楼梯'},
-          { routeName:'reverse-string',title:'344. 反转字符串'},
+        category:[
+          {
+            classify:'other',
+            list:[
+              { routeName:'bubble-sort',title:'冒泡排序'},
+              { routeName:'insert-sort',title:'插入排序'},
+              { routeName:'select-sort',title:'选择排序'},
+              { routeName:'common-string',title:'最大公共字符'},
+            ]
+          },
+          {
+            classify:'easy',
+            list:[
+              { routeName:'two-sum',title:'1. 两数之和'},
+              { routeName:'is-palindrome',title:'9. 回文数'},
+              { routeName:'longest-common-prefix',title:'14. 最长公共前缀'},
+              { routeName:'remove-duplicates',title:'26. 删除有序数组中的重复项'},
+              { routeName:'remove-element',title:'27. 移除元素'},
+              { routeName:'search-insert',title:'35. 搜索插入位置'},
+              { routeName:'plus-one',title:'66. 加一'},
+              { routeName:'my-sqrt',title:'69. x的平方根'},
+              { routeName:'climb-stairs',title:'70. 爬楼梯'},
+              { routeName:'reverse-string',title:'344. 反转字符串'},
+            ]
+          },
+          {
+            classify:'medium',
+            list:[
+              { routeName:'longest-common-subsequence',title:'剑指 Offer II 095. 最长公共子序列'},
+            ]
+          },
         ],
       }
     },
