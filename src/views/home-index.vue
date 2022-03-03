@@ -39,6 +39,7 @@
               { routeName:'longest-common-prefix',title:'14. 最长公共前缀'},
               { routeName:'remove-duplicates',title:'26. 删除有序数组中的重复项'},
               { routeName:'remove-element',title:'27. 移除元素'},
+              { routeName:'str-str',title:'28. 实现 strStr()'},
               { routeName:'search-insert',title:'35. 搜索插入位置'},
               { routeName:'plus-one',title:'66. 加一'},
               { routeName:'my-sqrt',title:'69. x的平方根'},

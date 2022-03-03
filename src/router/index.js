@@ -22,6 +22,7 @@ import searchInsert from '../views/easy/search-insert'
 import plusOne from '../views/easy/plus-one'
 import reverseString from '../views/easy/reverse-string'
 import commonChars from '../views/easy/common-chars'
+import strStr from '../views/easy/str-str'
 
 // medium
 import longestCommonSubsequence from '../views/medium/longest-common-subsequence'
@@ -49,6 +50,7 @@ const router = createRouter({
     { path:'/easy/plus-one',name:'plus-one',component:plusOne },
     { path:'/easy/reverse-string',name:'reverse-string',component:reverseString },
     { path:'/easy/common-chars',name:'common-chars',component:commonChars },
+    { path:'/easy/str-str',name:'str-str',component:strStr },
 
     { path:'/easy/longest-common-subsequence',name:'longest-common-subsequence',component:longestCommonSubsequence },
 
