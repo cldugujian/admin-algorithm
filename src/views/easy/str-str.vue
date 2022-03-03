@@ -51,27 +51,72 @@
       },
       // 常规方法
       strStr_2(haystack,needle){
+        console.log('');
         if( needle.length === 0 ){
-          console.log('空字符串');
+          console.log('空字符',haystack,needle,0);
           return 0;
         }
+        let commonStr = '';
         for( let i=0; i<needle.length; i++ ){
           for( let j=0; j<haystack.length; j++ ){
-
+            // console.log('j',j,'haystack[j]',haystack[j],'needle[i]',needle[i]);
+            if( needle[i] === haystack[j] ){
+              // 先判断第一个字符是否匹配
+              if( i === 0 ){
+                commonStr = needle[i];
+              }else{
+                // 如果之前匹配了第一个字符，则继续添加
+                if( commonStr.length !== 0 ){
+                  commonStr += needle[i];
+                }
+              }
+              // console.log('commonStr',commonStr);
+              if( commonStr === needle ){
+                console.log('找到了',haystack,needle,`第${j-(needle.length-1)}个`);
+                return j-(needle.length-1);
+              }
+              i++;
+            }else{
+              // 如果剩余字符串的长度已经小于 needle 的长度，则直接判定为找不到
+              if( haystack.length - (j-commonStr.length) - 1 < needle.length ){
+                console.log('长度肯定不够',haystack,needle,-1);
+                return -1;
+              }
+              // 众神归位
+              if( commonStr.length !== 0 ){
+                j -= (commonStr.length);
+                i = 0;
+                commonStr = '';
+              }
+            }
           }
         }
+        console.log('找不到',haystack,needle,-1);
+        return -1;
       },
     },
     created(){
       let test = [
-        { haystack:'hello',needle:'ll', },
-        { haystack:'aaaaa',needle:'bba', },
-        { haystack:'abcde',needle:'ab', },
-        { haystack:'',needle:'', },
+        { haystack:"mississippi",needle:'pi',answer:9 },
+        { haystack:"mississippi",needle:'ppi',answer:8 },
+        { haystack:"mississippi",needle:'ssiss',answer:2 },
+        { haystack:"mississippi",needle:'ssissip',answer:2 },
+        { haystack:"111234",needle:'1235',answer:-1 },
+        { haystack:"mississippi",needle:'issipi',answer:-1 },
+        { haystack:"mississippi",needle:'ssi',answer:2 },
+        { haystack:"mississippi",needle:'issip',answer:4 },
+        { haystack:"mississippi",needle:'issi',answer:1 },
+        { haystack:'aaaaa',needle:'bba',answer:-1 },
+        { haystack:'abcde',needle:'ab',answer:0 },
+        { haystack:'abcxyz',needle:'yz',answer:4 },
+        { haystack:'abcabcabcabc',needle:'cabc',answer:2 },
+        { haystack:'',needle:'',answer:0 },
       ];
+      let result = [];
       test.forEach((item)=>{
-        this.strStr_2( item.haystack,item.needle  );
+        result.push(this.strStr_2(item.haystack,item.needle) === item.answer);
       });
+      console.log('result',result);
     },
   }
 </script>
