@@ -28,7 +28,7 @@
               { routeName:'bubble-sort',title:'冒泡排序'},
               { routeName:'insert-sort',title:'插入排序'},
               { routeName:'select-sort',title:'选择排序'},
-              { routeName:'common-string',title:'最大公共字符'},
+              { routeName:'common-string',title:'查找所有公共字符'},
             ]
           },
           {
