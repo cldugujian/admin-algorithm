@@ -23,7 +23,7 @@ import plusOne from '../views/easy/plus-one'
 import reverseString from '../views/easy/reverse-string'
 import commonChars from '../views/easy/common-chars'
 import strStr from '../views/easy/str-str'
-import lengthOfLastWord from '../views/easy/length-of-lastWord'
+import lengthOfLastWord from '../views/easy/length-of-last-word'
 
 // medium
 import longestCommonSubsequence from '../views/medium/longest-common-subsequence'
@@ -52,7 +52,7 @@ const router = createRouter({
     { path:'/easy/reverse-string',name:'reverse-string',component:reverseString },
     { path:'/easy/common-chars',name:'common-chars',component:commonChars },
     { path:'/easy/str-str',name:'str-str',component:strStr },
-    { path:'/easy/length-of-lastWord',name:'length-of-lastWord',component:lengthOfLastWord },
+    { path:'/easy/length-of-last-word',name:'length-of-last-word',component:lengthOfLastWord },
 
     { path:'/easy/longest-common-subsequence',name:'longest-common-subsequence',component:longestCommonSubsequence },
 

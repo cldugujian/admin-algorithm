@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "length-of-lastWord"
+    name: "length-of-last-word"
   }
 </script>
 
