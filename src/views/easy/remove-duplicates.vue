@@ -110,15 +110,15 @@
       // 原地移动数组
       removeDuplicates_4(nums){
         // 当前用于对比的元素下标，初始值为 0
-        let currentSup = 0;
+        let currentSub = 0;
         for( let i=0; i<nums.length-1; i++ ){
           if( nums[i] !== nums[i+1] ){
-            currentSup ++;
-            nums[currentSup] = nums[i+1];
+            currentSub ++;
+            nums[currentSub] = nums[i+1];
           }
         }
-        console.log('nums',nums,'currentSup',currentSup);
-        return currentSup+1;
+        console.log('nums',nums,'currentSub',currentSub);
+        return currentSub+1;
       },
       // 每次发现重复元素，都调用一次splice
       removeDuplicates_5(nums){

@@ -27,7 +27,7 @@
         // 创建一个二位数组，存放所有元素的公共字符
         let cache = [];
         // 当前正在遍历的下标
-        let currentSup = null;
+        let currentSub = null;
         // 当前公共字符的长度
         let length = 0;
         // 遍历除最后一个元素外的整个数组
@@ -38,8 +38,8 @@
             for( let k=0; k<sorted[i].length; k++ ){
               if( minStr[j] === sorted[i][k] ){
                 // 如果当前是第一次遇到公共字符
-                if( currentSup === null ){
-                  currentSup = j;
+                if( currentSub === null ){
+                  currentSub = j;
                 }
                 // 中层索引 +1
                 if( k < sorted[i].length-1 ){
@@ -48,24 +48,24 @@
                 // 当前公共字符的长度 +1
                 length ++;
                 // 将当前公共字符记下来
-                let segment = minStr.slice(currentSup,currentSup+length);
+                let segment = minStr.slice(currentSub,currentSub+length);
                 cache[i].indexOf(segment) === -1 && cache[i].push(segment);
                 // 如果已经最后一位
                 if( k === sorted[i].length-1 ){
                   // 让中层循环重新回到该有的位置并重置相关变量
-                  j = minStr.indexOf(minStr[currentSup]);
-                  currentSup = null;
+                  j = minStr.indexOf(minStr[currentSub]);
+                  currentSub = null;
                   length = 0;
                 }
               }else{
                 // 如果当前已经匹配道公共字符
-                if( currentSup !== null ){
+                if( currentSub !== null ){
                   // 将当前公共字符记下来
-                  let segment = minStr.slice(currentSup,currentSup+length);
+                  let segment = minStr.slice(currentSub,currentSub+length);
                   cache[i].indexOf(segment) === -1 && cache[i].push(segment);
                   // 让中层循环重新回到该有的位置并重置相关变量
                   j -= length;
-                  currentSup = null;
+                  currentSub = null;
                   length = 0;
                 }
               }
