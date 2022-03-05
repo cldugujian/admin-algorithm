@@ -41,6 +41,7 @@
               { routeName:'remove-element',title:'27. 移除元素'},
               { routeName:'str-str',title:'28. 实现 strStr()'},
               { routeName:'search-insert',title:'35. 搜索插入位置'},
+              { routeName:'length-of-lastWord',title:'58. 最后一个单词的长度'},
               { routeName:'plus-one',title:'66. 加一'},
               { routeName:'my-sqrt',title:'69. x的平方根'},
               { routeName:'climb-stairs',title:'70. 爬楼梯'},
