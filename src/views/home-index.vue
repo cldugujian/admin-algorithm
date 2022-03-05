@@ -35,7 +35,7 @@
             classify:'easy',
             list:[
               { routeName:'two-sum',title:'1. 两数之和'},
-              { routeName:'is-palindrome',title:'9. 回文数'},
+              { routeName:'is-palindrome-number',title:'9. 回文数'},
               { routeName:'longest-common-prefix',title:'14. 最长公共前缀'},
               { routeName:'remove-duplicates',title:'26. 删除有序数组中的重复项'},
               { routeName:'remove-element',title:'27. 移除元素'},
@@ -45,6 +45,7 @@
               { routeName:'plus-one',title:'66. 加一'},
               { routeName:'my-sqrt',title:'69. x的平方根'},
               { routeName:'climb-stairs',title:'70. 爬楼梯'},
+              { routeName:'is-palindrome-string',title:'125. 验证回文串'},
               { routeName:'reverse-string',title:'344. 反转字符串'},
               { routeName:'common-chars',title:'1002. 查找共用字符'},
             ]

@@ -11,7 +11,7 @@ import selectSort from '../views/other/select-sort'
 import commonString from '../views/other/common-string'
 
 // easy
-import isPalindrome from '../views/easy/is-palindrome'
+import isPalindromeNumber from '../views/easy/is-palindrome-number'
 import twoSum from '../views/easy/two-sum'
 import mySqrt from '../views/easy/my-sqrt'
 import removeDuplicates from '../views/easy/remove-duplicates'
@@ -24,6 +24,7 @@ import reverseString from '../views/easy/reverse-string'
 import commonChars from '../views/easy/common-chars'
 import strStr from '../views/easy/str-str'
 import lengthOfLastWord from '../views/easy/length-of-last-word'
+import isPalindromeString from '../views/easy/is-palindrome-string'
 
 // medium
 import longestCommonSubsequence from '../views/medium/longest-common-subsequence'
@@ -40,7 +41,7 @@ const router = createRouter({
     { path:'/other/select-sort',name:'select-sort',component:selectSort },
     { path:'/other/common-string',name:'common-string',component:commonString },
 
-    { path:'/easy/is-palindrome',name:'is-palindrome',component:isPalindrome },
+    { path:'/easy/is-palindrome-number',name:'is-palindrome-number',component:isPalindromeNumber },
     { path:'/easy/two-sum',name:'two-sum',component:twoSum },
     { path:'/easy/my-sqrt',name:'my-sqrt',component:mySqrt },
     { path:'/easy/remove-duplicates',name:'remove-duplicates',component:removeDuplicates },
@@ -53,6 +54,7 @@ const router = createRouter({
     { path:'/easy/common-chars',name:'common-chars',component:commonChars },
     { path:'/easy/str-str',name:'str-str',component:strStr },
     { path:'/easy/length-of-last-word',name:'length-of-last-word',component:lengthOfLastWord },
+    { path:'/easy/is-palindrome-string',name:'is-palindrome-string',component:isPalindromeString },
 
     { path:'/easy/longest-common-subsequence',name:'longest-common-subsequence',component:longestCommonSubsequence },
 

@@ -45,10 +45,10 @@
 
 <script>
   export default {
-    name: "is-palindrome",
+    name: "is-palindrome-number",
     methods: {
       // 转字符串直接翻转
-      isPalindrome_1(x) {
+      isPalindromeNumber_1(x) {
         if (x < 0 || x % 10 === 0) {
           return false;
         }
@@ -64,7 +64,7 @@
         return x === str;
       },
       // 转字符串循环判断
-      isPalindrome_2(x) {
+      isPalindromeNumber_2(x) {
         let flag = true;
         if (x < 0 || x % 10 === 0) {
           return false;
@@ -81,15 +81,6 @@
         }
         return flag;
       },
-      // 不转字符串
-      isPalindrome_3(x) {
-        if (x < 0 || x % 10 === 0) {
-          return false;
-        }
-        if (x < 10 && x > 0) {
-          return true;
-        }
-      },
     },
     created() {
       let test = [
@@ -99,7 +90,7 @@
         10
       ];
       test.forEach(item => {
-        this.isPalindrome_2(item);
+        this.isPalindromeNumber_2(item);
       });
     },
   }
