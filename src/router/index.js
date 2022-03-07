@@ -25,6 +25,7 @@ import commonChars from '../views/easy/common-chars'
 import strStr from '../views/easy/str-str'
 import lengthOfLastWord from '../views/easy/length-of-last-word'
 import isPalindromeString from '../views/easy/is-palindrome-string'
+import isIsomorphic from '../views/easy/is-isomorphic'
 
 // medium
 import longestCommonSubsequence from '../views/medium/longest-common-subsequence'
@@ -55,6 +56,7 @@ const router = createRouter({
     { path:'/easy/str-str',name:'str-str',component:strStr },
     { path:'/easy/length-of-last-word',name:'length-of-last-word',component:lengthOfLastWord },
     { path:'/easy/is-palindrome-string',name:'is-palindrome-string',component:isPalindromeString },
+    { path:'/easy/is-isomorphic',name:'is-isomorphic',component:isIsomorphic },
 
     { path:'/easy/longest-common-subsequence',name:'longest-common-subsequence',component:longestCommonSubsequence },
 
